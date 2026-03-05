@@ -1,7 +1,7 @@
 import cv2
 import time
 
-def minimizeWindow():
+def minimizewindow():
     import win32gui, win32con
     window = win32gui.GetForegroundWindow()
     win32gui.ShowWindow(window, win32con.SW_MINIMIZE)
@@ -16,7 +16,7 @@ def cctv():
     print ("Help -- \n1.Press esc key to exit. \n2.press m to minimize.")
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     date_time = time.strftime("recording %H-%M-%d -%m %y")
-    output = cv2.VideoWriter('footage/'+date_time+'.mp4', fourcc, 20.0, (640, 480))
+    output = cv2.VideoWriter('footage/'+date_time+'.mp4', fourcc, 20.0, (int(width), int(height)))
     while video.isOpened():
         check, frame = video.read()
         if True:
@@ -33,7 +33,7 @@ def cctv():
                 print ("Video footage saved in current directory")
                 break
             elif cv2.waitKey(1) == ord('m'):
-                minimizeWindow()
+                minimizewindow()
 
     video.release()
     output.release()
